@@ -12,8 +12,8 @@ void buzzer_off(void)
 void buzzer_test(void)
 {
     buzzer_on();
-    osDelay(200);
+    osDelay(20);
     buzzer_off();
-    osDelay(200);
+    osDelay(20);
 
 }
