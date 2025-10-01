@@ -61,13 +61,7 @@ const osThreadAttr_t defaultTask_attributes = {
 
 /* Private function prototypes -----------------------------------------------*/
 /* USER CODE BEGIN FunctionPrototypes */
-void StartRedAvoidTask(void *argument);
-osThreadId_t red_avoidTaskHandle;
-const osThreadAttr_t red_avoidTask_attributes = {
-  .name = "red_avoidTask",
-  .stack_size = 128 * 4,
-  .priority = (osPriority_t) osPriorityNormal
-}; // 添加分号
+
 /* USER CODE END FunctionPrototypes */
 
 void StartDefaultTask(void *argument);
@@ -106,7 +100,7 @@ void MX_FREERTOS_Init(void) {
 
   /* USER CODE BEGIN RTOS_THREADS */
   /* add threads, ... */
-  red_avoidTaskHandle = osThreadNew(StartRedAvoidTask, NULL, &red_avoidTask_attributes); 
+
   /* USER CODE END RTOS_THREADS */
 
   /* USER CODE BEGIN RTOS_EVENTS */
@@ -136,25 +130,5 @@ void StartDefaultTask(void *argument)
 
 /* Private application code --------------------------------------------------*/
 /* USER CODE BEGIN Application */
-void StartRedAvoidTask(void *argument)
-{
-  /* USER CODE BEGIN StartRedAvoidTask */
-  /* Infinite loop */
-  for(;;)
-  {
-    if(Red_Avoid_dectect()==1&&Light_Sensor_dectect()==1)    
-    {
-      buzzer_on();
-      OLED_ShowString(1,1,"1");
-    }
-    else
-    {
-      buzzer_off();
-      OLED_ShowString(1,1,"0");
-    }
-     
-  osDelay(100);
-  }
- 
-}
+
 /* USER CODE END Application */
