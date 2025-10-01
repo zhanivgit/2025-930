@@ -39,3 +39,4 @@ rtos\main.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/task.h
 rtos\main.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/list.h
 rtos\main.o: ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.h
 rtos\main.o: ../Core/Inc/gpio.h
+rtos\main.o: ../Drivers/MCU/OLED.h

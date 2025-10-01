@@ -29,6 +29,7 @@
 #include "buzzer.h"
 #include "Red_Avoid.h"
 #include "Light_Sensor.h"
+#include "OLED.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -128,6 +129,7 @@ void StartDefaultTask(void *argument)
   for(;;)
   {
     led_test();
+
   }
   /* USER CODE END StartDefaultTask */
 }
@@ -140,17 +142,19 @@ void StartRedAvoidTask(void *argument)
   /* Infinite loop */
   for(;;)
   {
-    if(red_avoid_dectect()&&Light_Sensor_dectect())
+    if(Red_Avoid_dectect()==1&&Light_Sensor_dectect()==1)    
     {
       buzzer_on();
+      OLED_ShowString(1,1,"1");
     }
     else
     {
       buzzer_off();
+      OLED_ShowString(1,1,"0");
     }
+     
   osDelay(100);
   }
  
 }
 /* USER CODE END Application */
-

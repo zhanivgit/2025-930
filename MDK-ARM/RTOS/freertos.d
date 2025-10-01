@@ -42,3 +42,4 @@ rtos\freertos.o: ../Drivers/MCU/Led.h
 rtos\freertos.o: ../Drivers/MCU/buzzer.h
 rtos\freertos.o: ../Drivers/MCU/Red_Avoid.h
 rtos\freertos.o: ../Drivers/MCU/Light_Sensor.h
+rtos\freertos.o: ../Drivers/MCU/OLED.h
